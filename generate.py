@@ -1,4 +1,8 @@
 """
+go to open-oasis directory and run:
+    python generate.py --actions-ckpt "C:\\Users\\tobia\\.cache\\huggingface\\hub\\models--Etched--oasis-500m\\snapshots\\4ca7d2d811f4f0c6fd1d5719bf83f14af3446c0c\\snippy-chartreuse-mastiff-f79998db196d-20220401-224517.chunk_001.actions.pt"
+
+
 References:
     - Diffusion Forcing: https://github.com/buoyancy99/diffusion-forcing
 """
@@ -17,8 +21,9 @@ device = "cuda:0"
 
 parse = argparse.ArgumentParser()
 
-parse.add_argument('--oasis-ckpt', type=str, help='Path to Oasis DiT checkpoint.', default="oasis500m.safetensors")
-parse.add_argument('--vae-ckpt', type=str, help='Path to Oasis ViT-VAE checkpoint.', default="vit-l-20.safetensors")
+parse.add_argument('--oasis-ckpt', type=str, help='Path to Oasis DiT checkpoint.', default="C:\\Users\\tobia\\.cache\\huggingface\\hub\\models--Etched--oasis-500m\\snapshots\\4ca7d2d811f4f0c6fd1d5719bf83f14af3446c0c\\oasis500m.safetensors")
+parse.add_argument('--vae-ckpt', type=str, help='Path to Oasis ViT-VAE checkpoint.', default="C:\\Users\\tobia\\.cache\\huggingface\\hub\\models--Etched--oasis-500m\\snapshots\\4ca7d2d811f4f0c6fd1d5719bf83f14af3446c0c\\vit-l-20.safetensors")
+parse.add_argument('--actions-ckpt', type=str, help='Path to actions checkpoint.', default="C:\\Users\\tobia\\.cache\\huggingface\\hub\\models--Etched--oasis-500m\\snapshots\\4ca7d2d811f4f0c6fd1d5719bf83f14af3446c0c\\snippy-chartreuse-mastiff-f79998db196d-20220401-224517.chunk_001.actions.pt")
 parse.add_argument('--num-frames', type=int, help='How many frames should be generated?', default=32)
 parse.add_argument('--output-path', type=str, help='Path where generated video should be saved.', default="video.mp4")
 parse.add_argument('--fps', type=int, help='What framerate should be used to save the output?', default=20)
